@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SmartHome.Models.SmartDevice
 {
-    public abstract class SmartDevice
+    public class SmartDevice
     {
 
         public int DeviceID { get; set; }

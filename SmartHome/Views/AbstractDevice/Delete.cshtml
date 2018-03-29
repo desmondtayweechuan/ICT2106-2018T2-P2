@@ -1,4 +1,5 @@
-﻿@model SmartHome.Models.Device
+﻿@*@model SmartHome.Models.Device*@
+@model SmartHome.Models.SmartDevice.SmartDevice;
 
 @{
     ViewData["Title"] = "Delete";
@@ -78,7 +79,7 @@
             @Html.DisplayFor(model => model.timestamp)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="submit" value="Delete" class="btn btn-default" /> |
         <a asp-action="Index">Back to List</a>

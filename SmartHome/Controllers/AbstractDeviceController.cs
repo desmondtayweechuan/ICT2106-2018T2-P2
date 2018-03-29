@@ -67,9 +67,25 @@ namespace SmartHome.Controllers
             //Device
             try
             {
-                //DeviceFactory FD = new DeviceFactory();
-                //SmartDevice testDevice = FD.getDevice(param);
-                model.Add(device);
+                DeviceFactory FD = new DeviceFactory();
+                SmartDevice SmartDeviceObj = FD.getDevice(device.Type);
+
+                //TODO: need to implement a Clone() function
+                SmartDeviceObj.DeviceID = device.DeviceID;
+                SmartDeviceObj.HouseholdID = device.HouseholdID;
+                SmartDeviceObj.DeviceName = device.DeviceName;
+                SmartDeviceObj.Location = device.Location;
+                SmartDeviceObj.Brand = device.Brand;
+                SmartDeviceObj.Model = device.Model;
+                SmartDeviceObj.Type = device.Type;
+                SmartDeviceObj.State = device.State;
+                SmartDeviceObj.UsageKwH = device.UsageKwH;
+                SmartDeviceObj.favourite = device.favourite;
+                //It seems like the default constructor in the SmartDevice is not going through
+                SmartDeviceObj.timestamp = device.timestamp;
+                //SmartDeviceObj.timestamp = DateTime.Now; //Only this line works
+
+                model.Add(SmartDeviceObj);
                 ViewData["Message"] = param;
                 //return View("Index", device);
                 return RedirectToAction(nameof(Index));
