@@ -16,8 +16,27 @@ namespace SmartHome.Models.SmartDevice.SmartAircon
         public string windspeed { get; set; }
         public string swing { get; set; }
 
-        //Empty Constructor
-        public MySmartAircon() { }
+        //Default Values Constructor
+        public MySmartAircon(SmartDevice device) {
+            this.DeviceID = device.DeviceID;
+            this.DeviceName = device.DeviceName;
+            this.timestamp = DateTime.Now;
+            
+            this.HouseholdID = device.HouseholdID;
+            this.DeviceName = device.DeviceName;
+            this.Brand = device.Brand;
+            this.Model = device.Model;
+            this.Type = device.Type;
+            this.Location = device.Location;
+            this.State = "OFF";
+            this.UsageKwH = device.UsageKwH;
+            this.favourite = 0;
+
+            this.temperature = 24;
+            this.mode = "Medium";
+            this.windspeed = "Auto";
+            this.swing = "SWING";
+        }
 
 
         //Constructor
@@ -26,10 +45,10 @@ namespace SmartHome.Models.SmartDevice.SmartAircon
         DateTime timestamp, int temperature, string mode, string windspeed, string swing)
         :base(DeviceID, HouseholdID, DeviceName, Location, Brand, Model, Type, State, UsageKwH, favourite, timestamp)
         {
-            this.temperature = 12;
-            this.mode = "a";
-            this.windspeed = "a";
-            this.swing = "a";
+            this.temperature = temperature;
+            this.mode = mode;
+            this.windspeed = windspeed;
+            this.swing = swing;
         }
 
     }

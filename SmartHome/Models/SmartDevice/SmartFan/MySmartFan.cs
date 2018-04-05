@@ -12,8 +12,24 @@ namespace SmartHome.Models.SmartDevice.SmartFan
         //Additional Attributes
         public int fanSpeed { get; set; }
 
-        //Empty Constructor
-        public MySmartFan() { }
+        //Default Values Constructor
+        public MySmartFan(SmartDevice device) {
+            this.DeviceID = device.DeviceID;
+            this.DeviceName = device.DeviceName;
+            this.timestamp = DateTime.Now;
+
+            this.HouseholdID = device.HouseholdID;
+            this.DeviceName = device.DeviceName;
+            this.Brand = device.Brand;
+            this.Model = device.Model;
+            this.Type = device.Type;
+            this.Location = device.Location;
+            this.State = "OFF";
+            this.UsageKwH = device.UsageKwH;
+            this.favourite = 0;
+
+            this.fanSpeed = 0;
+        }
 
         //Constructor
         public MySmartFan(int DeviceID, int HouseholdID, String DeviceName, String Location,
@@ -21,7 +37,7 @@ namespace SmartHome.Models.SmartDevice.SmartFan
         DateTime timestamp, int fanSpeed)
         : base(DeviceID, HouseholdID, DeviceName, Location, Brand, Model, Type, State, UsageKwH, favourite, timestamp)
         {
-            this.fanSpeed = 0;
+            this.fanSpeed = fanSpeed;
         }
 
     }

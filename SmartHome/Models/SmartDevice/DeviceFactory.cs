@@ -13,16 +13,16 @@ namespace SmartHome.Models.SmartDevice
     {
       
 
-        public SmartDevice getDevice(String type)
+        public SmartDevice getDevice(String type, SmartDevice device)
         {
             switch (type)
             {
                 case "aircon":
-                    return new MySmartAircon();
+                    return new MySmartAircon(device);
                 case "fan":
-                    return new MySmartFan();
+                    return new MySmartFan(device);
                 case "light":
-                    return new MySmartLight();
+                    return new MySmartLight(device);
                 default:
                     return null;
             }

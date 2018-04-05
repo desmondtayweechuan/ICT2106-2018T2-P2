@@ -15,25 +15,7 @@ namespace SmartHome.Controllers
     {
 
 
-
-        //static List<Device> model = new List<Device>();
-        /*
-        SmartAircon aircon = new SmartAircon(1,1,"A", "A", "A", "A", "A", "A",
-            1.0,1,DateTime.Now, 2, "A", "A", "A");
-            */
-
-        //static List<Device> model = new List<Device>();
         static List<SmartDevice> model = new List<SmartDevice>();
-
-        //DeviceFactory myStuffs = new DeviceFactory();
-        //SmartDevice sd = myStuffs.getDevice("Aircon");
-        //Console.WriteLine(sd);
-
-
-       //static List<Device> modelTest = new List<Device>();
-        //Device deviceOld = new Device(1, 1, "A", "A", "A", "A", "A", "A",1 , 1, DateTime.Now);
-
-
 
         public IActionResult Index()
         {
@@ -68,22 +50,7 @@ namespace SmartHome.Controllers
             try
             {
                 DeviceFactory FD = new DeviceFactory();
-                SmartDevice SmartDeviceObj = FD.getDevice(device.Type);
-
-                //TODO: need to implement a Clone() function
-                SmartDeviceObj.DeviceID = device.DeviceID;
-                SmartDeviceObj.HouseholdID = device.HouseholdID;
-                SmartDeviceObj.DeviceName = device.DeviceName;
-                SmartDeviceObj.Location = device.Location;
-                SmartDeviceObj.Brand = device.Brand;
-                SmartDeviceObj.Model = device.Model;
-                SmartDeviceObj.Type = device.Type;
-                SmartDeviceObj.State = device.State;
-                SmartDeviceObj.UsageKwH = device.UsageKwH;
-                SmartDeviceObj.favourite = device.favourite;
-                //It seems like the default constructor in the SmartDevice is not going through
-                SmartDeviceObj.timestamp = device.timestamp;
-                //SmartDeviceObj.timestamp = DateTime.Now; //Only this line works
+                SmartDevice SmartDeviceObj = FD.getDevice(device.Type, device);
 
                 model.Add(SmartDeviceObj);
                 ViewData["Message"] = param;
