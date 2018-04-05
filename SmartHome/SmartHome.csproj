@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\DeviceController.cs" />
     <Compile Remove="Models\Device.cs" />
   </ItemGroup>
 
